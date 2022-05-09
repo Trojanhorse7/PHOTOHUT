@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    min-height:  30vh;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    padding: 2rem;
+    cursor: pointer;
+}
+
+#logo {
+    text-decoration: none;
+    color: black;
+}
+
+.search-form {
+    padding: 2rem;
+    display: flex;
+}
+
+.search-form input {
+    font-size: 2rem;
+    padding: 0.5rem;
+    width: 100%;
+    border: none;
+    border: 2px solid rgb(112, 243, 223);
+    cursor: pointer;
+}
+
+.search-form button {
+    border: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+    background: rgb(112, 243, 223);
+    color: white;
+    cursor: pointer;
+}
+
+.gallery-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+    padding: 1rem 0rem;
+}
+
+.gallery-info a {
+    color: gray;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    padding: 2rem, 0rem;
+    width: 80%;
+    margin: auto;
+    row-gap: 3rem;
+    column-gap: 3rem;
+}
+
+.gallery-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nav-button {
+    min-height: 20vh;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.more {
+    padding: 1rem 3rem;
+    background:rgb(12, 153, 132);
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
