@@ -3,11 +3,11 @@ const gallery = document.querySelector(".gallery");
 const searchInput = document.querySelector(".search-input");
 const submitButton = document.querySelector("submit-btn"); 
 const form = document.querySelector(".search-form");
-const more = dcocument.querySelector(".more")
+const more = document.querySelector(".more");
 let searchValue;
 let pageNumber = 1;
 let fetchLink;
-
+let currentSearch;
 
 // Main functions
 async function fetchApi(url) {
@@ -29,7 +29,7 @@ function generatePictures(data) {
         galleryImg.innerHTML = `
         <div class="gallery-info">
         <p>${photo.photographer}</p>
-        <a href=${photo.src.original} target="_blank" >Download<a/>
+        <a href=${photo.src.original} target="_blank">Download</a>
         </div>
         <img src=${photo.src.large} alt=${photo.src.photographer}></img>
         `;
@@ -50,32 +50,31 @@ async function searchPhotos(search) {
     generatePictures(data);
 }
 
-async function loadMore(event) {
-    pageNumber++;
-
-}
-
 //Event Listeners
-more.addEventListener("click", loadMore);
 searchInput.addEventListener("input", updateInput);
+more.addEventListener("click", loadMore);
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     searchPhotos(searchValue);
+    currentSearch = searchValue;
 });
+
 
 //Callback function for Event Listeners
 function updateInput(event) {
     searchValue = event.target.value;
 }
 
-function loadMore() {
+async function loadMore() {
     pageNumber++;
     if (searchValue) {
-        fetchLink = `https://api.pexels.com/v1/search?query=${search}+query&per_page=15&page=${pageNumber}`
+        fetchLink = `https://api.pexels.com/v1/search?query=${currentSearch}+query&per_page=15&page=${pageNumber}`
     } else {
         fetchLink = `https://api.pexels.com/v1/curated?per_page=15&page=${pageNumber}`;
     }
+    const data = await fetchApi(fetchLink);
+    generatePictures(data);
 }
 
 function clear() {
@@ -83,4 +82,4 @@ function clear() {
     searchInput.value = "";
 }
 
-curatedImage(); 
+curatedImage();
