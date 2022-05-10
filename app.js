@@ -24,6 +24,7 @@ async function fetchApi(url) {
 
 function generatePictures(data) {
     data.photos.forEach(photo => { 
+        
         const galleryImg = document.createElement("div");
         galleryImg.classList.add("gallery-img");
         galleryImg.innerHTML = `
