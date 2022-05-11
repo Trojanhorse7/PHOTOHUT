@@ -55,6 +55,7 @@ header p {
 .search-form {
     padding: 2rem;
     display: flex;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .search-form input {
@@ -64,6 +65,7 @@ header p {
     border: none;
     border: 2px solid rgb(112, 243, 223);
     cursor: pointer;
+    font-family: inherit;
 }
 
 input::placeholder {
